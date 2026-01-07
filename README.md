@@ -64,6 +64,6 @@ Para ejecutar el proyecto necesitás tener instalado:
 ### Clonar el repositorio
 
 ```bash
-git clone https://github.com/TU-USUARIO/SacilComidasCaseras.git
+git clone https://github.com/naiaraf-dev/sacil-comidas-caseras.git
 cd SacilComidasCaseras
 ```
