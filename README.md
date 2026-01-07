@@ -61,9 +61,74 @@ Para ejecutar el proyecto necesitás tener instalado:
 
 ## Instalación y ejecución
 
-### Clonar el repositorio
+### 1️⃣ Clonar el repositorio
 
 ```bash
 git clone https://github.com/naiaraf-dev/sacil-comidas-caseras.git
 cd SacilComidasCaseras
 ```
+---
+
+### 2️⃣ Configuración del backend
+
+Entrar a la carpeta del backend:
+```bash
+cd backend
+```
+
+Instalar dependencias:
+```bash
+npm install
+```
+
+Crear el archivo de variables de entorno:
+```bash
+cp .env.example .env
+```
+Editar el archivo .env y configurar la variable DATABASE_URL según tu base de datos.
+
+Ejecutar migraciones de Prisma (si corresponde):
+```bash
+npx prisma migrate dev
+```
+
+Iniciar el servidor backend:
+```bash
+npm run dev
+
+El backend quedará corriendo por defecto en http://localhost:3000 (o el puerto configurado).
+```
+
+---
+
+### 3️⃣ Configuración del frontend
+
+Volver a la raíz del proyecto:
+```bash
+cd ..
+```
+
+Instalar dependencias del frontend:
+```bash
+npm install
+```
+
+Iniciar el servidor de desarrollo:
+```bash
+npm run dev
+```
+
+El frontend estará disponible en:
+```bash
+http://localhost:5173
+```
+
+---
+
+## Notas
+
+- El archivo .env no se versiona por razones de seguridad.
+
+- La base de datos local (SQLite) se utiliza solo para desarrollo.
+
+- Las imágenes del menú se encuentran en la carpeta public/.
