@@ -1,0 +1,9 @@
+# Normalizar finales de línea
+* text=auto
+
+# Evitar problemas en scripts
+*.sh text eol=lf
+*.js text eol=lf
+*.ts text eol=lf
+*.json text eol=lf
+
