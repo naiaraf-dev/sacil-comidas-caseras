@@ -494,6 +494,7 @@ async function main() {
                 category: "vegano"
             },
         ],
+        skipDuplicates: true,
     });
 
     console.log("Productos cargados ✔️");
