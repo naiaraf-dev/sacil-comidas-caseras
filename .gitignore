@@ -5,11 +5,17 @@ node_modules/
 backend/node_modules/
 
 # ========================
-# Env (IMPORTANTE)
+# Environment variables
 # ========================
-backend/src/.env
-backend/src/.env.*
-!backend/src/.env.example
+backend/.env
+backend/.env.*
+!backend/.env.example
+
+# ========================
+# Databases (local dev)
+# ========================
+backend/*.sqlite
+backend/prisma/*.sqlite
 
 # ========================
 # Build
