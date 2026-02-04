@@ -109,9 +109,13 @@ This command will:
 Start the backend server:
 ```bash
 npm run dev
-
-The backend will run by default on http://localhost:3000 (or the port configured in your environment variables).
 ```
+
+The backend will run by default on:
+```bash
+http://localhost:3000
+```
+(or the port configured in your environment variables).
 
 ---
 
@@ -139,7 +143,7 @@ http://localhost:5173
 
 ---
 
-## Notas
+## Notes
 
 - The .env file is not versioned for security reasons.
 
