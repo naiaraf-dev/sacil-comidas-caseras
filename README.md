@@ -1,15 +1,30 @@
 # Sacil Comidas Caseras
 
-Aplicación web para un emprendimiento de comidas caseras.  
-El proyecto cuenta con un **frontend moderno** para mostrar el menú por categorías y un **backend** con conexión a base de datos.
+Web application developed for a homemade food business.  
+The project features a **modern frontend** to display the menu by categories and a **backend API** connected to a database to manage products.
 
-Es un proyecto personal desarrollado para el emprendimiento de comidas caseras de mi mamá, que me dio la posibilidad de practicar desarrollo frontend y backend en un caso real.
+This is a **personal project** built for my mom’s homemade food business, which allowed me to practice **frontend and backend development in a real-world scenario**.  
+The main goals were to work with **React + Tailwind CSS** and to integrate a **database-driven backend** to dynamically fetch menu items.
+
+🔗 Live demo: https://sacilcomidascaseras.com
 
 ---
 
-## Estructura del proyecto
+## Features
 
-El repositorio está organizado como un **monorepo**, con frontend y backend en el mismo proyecto:
+- Responsive UI (mobile-first)
+- Product listing by category
+- Product detail modal
+- Shopping cart with quantity control and notes
+- WhatsApp checkout integration
+- Dynamic data fetched from backend API
+- Smooth scrolling navigation with active section detection
+
+---
+
+## Project structure
+
+The repository is organized as a **monorepo**, containing both frontend and backend in a single project:
 
 ```
 SacilComidasCaseras/
@@ -33,7 +48,7 @@ SacilComidasCaseras/
 
 ---
 
-## Tecnologías utilizadas
+## Tech Stack
 
 ### Frontend
 - React
@@ -45,80 +60,79 @@ SacilComidasCaseras/
 - Node.js
 - Prisma ORM
 - PostgreSQL / Prisma Postgres
-- Variables de entorno con `.env`
+- Environment variables with `.env`
 
 ---
+## Getting started (Run locally)
 
-## Requisitos previos
+### Prerequisites
 
-Para ejecutar el proyecto necesitás tener instalado:
-
-- Node.js (v18 o superior recomendado)
+- Node.js (v18 or higher recommended)
 - npm
-- Una base de datos compatible con Prisma (PostgreSQL / Prisma)
+- A Prisma-compatible database (PostgreSQL / Prisma Postgres)
 
 ---
+## Installation and local setup
 
-## Instalación y ejecución
-
-### 1️⃣ Clonar el repositorio
+### 1️⃣ Clone the repository
 
 ```bash
 git clone https://github.com/naiaraf-dev/sacil-comidas-caseras.git
 cd SacilComidasCaseras
 ```
+
 ---
 
-### 2️⃣ Configuración del backend
+### 2️⃣ Backend setup
 
-Entrar a la carpeta del backend:
+Navigate to the backend folder and install dependencies:
 ```bash
 cd backend
-```
-
-Instalar dependencias:
-```bash
 npm install
 ```
 
-Crear el archivo de variables de entorno:
+Create the environment variables file:
 ```bash
 cp .env.example .env
 ```
-Editar el archivo .env y configurar la variable DATABASE_URL según tu base de datos.
+Edit the .env file and configure the DATABASE_URL according to your database.
 
-Ejecutar migraciones de Prisma (si corresponde):
+Run Prisma migrations and seed the database:
 ```bash
-npx prisma migrate dev
+npx prisma migrate reset
 ```
+This command will:
+- Drop and recreate the database
+- Apply all migrations
+- Automatically run the Prisma seed
 
-Iniciar el servidor backend:
+Start the backend server:
 ```bash
 npm run dev
 
-El backend quedará corriendo por defecto en http://localhost:3000 (o el puerto configurado).
+The backend will run by default on http://localhost:3000 (or the port configured in your environment variables).
 ```
 
 ---
 
-### 3️⃣ Configuración del frontend
+### 3️⃣ Frontend setup
 
-Volver a la raíz del proyecto:
+Go back to the project root:
 ```bash
 cd ..
 ```
 
-Instalar dependencias del frontend:
+Install frontend dependencies:
 ```bash
 npm install
 ```
 
-Iniciar el servidor de desarrollo:
+Start the development server:
 ```bash
 npm run dev
 ```
 
-El frontend estará disponible en:
+The frontend will be available at:
 ```bash
 http://localhost:5173
 ```
@@ -127,8 +141,8 @@ http://localhost:5173
 
 ## Notas
 
-- El archivo .env no se versiona por razones de seguridad.
+- The .env file is not versioned for security reasons.
 
-- La base de datos local (SQLite) se utiliza solo para desarrollo.
+- The database is used only for development purposes.
 
-- Las imágenes del menú se encuentran en la carpeta public/.
+- Menu images and static assets are located in the public/ folder.

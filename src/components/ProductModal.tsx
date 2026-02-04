@@ -39,7 +39,9 @@ export default function ProductModal({ product, onClose, onAdd }: Props) {
             {/* INFO */}
             <div className="flex flex-col flex-1">
                 <span className="text-primary font-bold text-lg">
-                ${product.price.toLocaleString()}
+                {product.price === 0
+                    ? "Precio a consultar"
+                    : `$${product.price.toLocaleString()}`}
                 </span>
 
                 {product.description && (

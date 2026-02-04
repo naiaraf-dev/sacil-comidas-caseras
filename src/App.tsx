@@ -7,6 +7,7 @@ import CartDrawer from "./components/CartDrawer";
 import Navbar from "./components/Navbar";
 import CartButton from "./components/CartButton";
 import Footer from "./components/Footer";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -14,6 +15,11 @@ function App() {
 
   const cart = useCart();
   const [showCart, setShowCart] = useState(false);
+
+  // FORZAR SCROLL AL TOP AL CARGAR LA PÁGINA
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   // CARGAR PRODUCTOS DEL BACKEND
   useEffect(() => {
@@ -46,9 +52,15 @@ function App() {
     const lines = ["Hola! Quiero hacer un pedido:", ""];
 
     items.forEach(it => {
-      lines.push(
-        `• ${it.product.name} x${it.quantity} - $${(it.product.price * it.quantity).toLocaleString()}`
-      );
+      if (it.product.price === 0) {
+        lines.push(
+          `• ${it.product.name} x${it.quantity} - Precio a consultar`
+        );
+      } else {
+        lines.push(
+          `• ${it.product.name} x${it.quantity} - $${(it.product.price * it.quantity).toLocaleString()}`
+        );
+      }
 
       if (it.note) {
         lines.push(`  ↳ Observación: ${it.note}`);
@@ -96,15 +108,15 @@ function App() {
 
       <main className="pt-32 container mx-auto p-4">
 
-        {/* PLATOS */}
-        <section id="platos" className="scroll-mt-36 pt-20 mb-12">
+        {/* VIANDAS */}
+        <section id="viandas" className="scroll-mt-36 pt-20 mb-12">
           <div className="max-w-7xl mx-auto px-4">
             <h2 className="text-3xl font-bold text-primary mb-6 pl-4">
-              Platos
+              Viandas
             </h2>
 
             <ProductList
-              products={productsByCategory("platos")}
+              products={productsByCategory("viandas")}
               onProductClick={setSelectedProduct}
             />
           </div>
@@ -195,35 +207,6 @@ function App() {
             />
           </div>
         </section>
-
-        {/* SIN TACC */}
-        {/* <section id="sintacc" className="scroll-mt-36 pt-4 mb-8">
-          <h2 className="text-2xl font-bold text-primary mb-4">Sin TACC</h2>
-          <ProductList
-            products={productsByCategory("sintacc")}
-            onProductClick={setSelectedProduct}
-          />
-        </section> */}
-
-        {/* VIANDAS */}
-        <section id="viandas" className="scroll-mt-36 pt-12 mb-12">
-          <div className="max-w-7xl mx-auto px-4">
-            <h2 className="text-3xl font-bold text-primary mb-6 pl-4">Viandas</h2>
-            <p className="text-dark mb-6 pl-4">
-              Armá tu vianda semanal eligiendo entre nuestros platos disponibles.
-            </p>
-          </div>
-        </section>
-
-        {/* ENVÍO */}
-        <section id="envio" className="scroll-mt-36 pt-12 mb-12">
-          <div className="max-w-7xl mx-auto px-4">
-            <h2 className="text-3xl font-bold text-primary mb-6 pl-4">Envío</h2>
-            <p className="text-dark mb-6 pl-4">
-              Coordinamos envíos según zona.
-            </p>
-          </div>
-        </section>
       </main>
 
       <CartButton
@@ -231,6 +214,8 @@ function App() {
         total={cart.total()}
         onOpen={() => setShowCart(true)}
       />
+
+      <ScrollToTop />
 
       {showCart && (
         <CartDrawer

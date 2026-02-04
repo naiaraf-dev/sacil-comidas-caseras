@@ -45,42 +45,44 @@ export default function CartDrawer({ items, onClose, onInc, onDec, onRemove, tot
                                     />
 
                                     <div className="flex-1">
-                                    <div className="font-medium">{it.product.name}</div>
+                                        <div className="font-medium">{it.product.name}</div>
 
-                                    {it.note && (
-                                        <div className="text-xs text-gray-500">
-                                        Obs: {it.note}
+                                        {it.note && (
+                                            <div className="text-xs text-gray-500">
+                                            Obs: {it.note}
+                                            </div>
+                                        )}
+
+                                        <div className="text-sm text-dark font-bold">
+                                        {it.product.price === 0
+                                            ? "Precio a consultar"
+                                            : `$${it.product.price.toLocaleString()}`}
                                         </div>
-                                    )}
-
-                                    <div className="text-sm text-dark font-bold">
-                                        ${it.product.price.toLocaleString()}
-                                    </div>
                                     </div>
 
                                     <div className="flex items-center gap-2">
-                                    <button
-                                        onClick={() => onDec(it.product.id, it.note)}
-                                        className="px-3 py-1 border rounded"
-                                    >
-                                        -
-                                    </button>
+                                        <button
+                                            onClick={() => onDec(it.product.id, it.note)}
+                                            className="px-3 py-1 border rounded"
+                                        >
+                                            -
+                                        </button>
 
-                                    <span>{it.quantity}</span>
+                                        <span>{it.quantity}</span>
 
-                                    <button
-                                        onClick={() => onInc(it.product.id, it.note)}
-                                        className="px-3 py-1 border rounded"
-                                    >
-                                        +
-                                    </button>
+                                        <button
+                                            onClick={() => onInc(it.product.id, it.note)}
+                                            className="px-3 py-1 border rounded"
+                                        >
+                                            +
+                                        </button>
 
-                                    <button
-                                        onClick={() => onRemove(it.product.id, it.note)}
-                                        className="text-red-500 ml-2 text-xl"
-                                    >
-                                        🗑
-                                    </button>
+                                        <button
+                                            onClick={() => onRemove(it.product.id, it.note)}
+                                            className="text-red-500 ml-2 text-xl"
+                                        >
+                                            🗑
+                                        </button>
                                     </div>
                                 </li>
                             ))}
@@ -94,6 +96,15 @@ export default function CartDrawer({ items, onClose, onInc, onDec, onRemove, tot
                         <div className="flex justify-between text-lg font-bold mb-4">
                             <span>{items.length} productos</span>
                             <span>${total.toLocaleString()}</span>
+                        </div>
+
+                        <div className="mb-4 p-3 rounded-xl bg-primary/5 text-sm text-dark">
+                            <p className="font-medium flex items-center gap-1">
+                                🚚 Envíos según zona
+                            </p>
+                            <p className="text-dark/80 leading-snug">
+                                El costo de envío se coordina por WhatsApp al confirmar el pedido.
+                            </p>
                         </div>
 
                         <button
