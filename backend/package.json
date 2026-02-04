@@ -20,6 +20,7 @@
     "typescript": "^5.9.3"
   },
   "prisma": {
-    "seed": "ts-node-dev --transpile-only prisma/seed.ts"
+    "seed": "ts-node-dev --transpile-only prisma/seed.ts",
+    "schema": "prisma/schema.prisma"
   }
 }
