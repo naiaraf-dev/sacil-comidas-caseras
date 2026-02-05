@@ -6,7 +6,7 @@ The project features a **modern frontend** to display the menu by categories and
 This is a **personal project** built for my mom’s homemade food business, which allowed me to practice **frontend and backend development in a real-world scenario**.  
 The main goals were to work with **React + Tailwind CSS** and to integrate a **database-driven backend** to dynamically fetch menu items.
 
-🔗 Live demo: https://sacilcomidascaseras.com
+🔗 Live demo: https://sacilcomidascaseras.com.ar
 
 ---
 
