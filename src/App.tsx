@@ -25,7 +25,8 @@ function App() {
   useEffect(() => {
     async function loadProducts() {
       try {
-        const res = await fetch("http://localhost:3000/productos");
+        const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
+        const res = await fetch(`${API_URL}/productos`);
         const data = await res.json();
         setProducts(data);
       } catch (err) {
