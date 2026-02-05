@@ -8,10 +8,12 @@ import Navbar from "./components/Navbar";
 import CartButton from "./components/CartButton";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
+import LoadingSkeleton from "./components/LoadingSkeleton";
 
 function App() {
   const [products, setProducts] = useState<Product[]>([]);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const [loading, setLoading] = useState(true);
 
   const cart = useCart();
   const [showCart, setShowCart] = useState(false);
@@ -25,12 +27,15 @@ function App() {
   useEffect(() => {
     async function loadProducts() {
       try {
+        setLoading(true);
         const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
         const res = await fetch(`${API_URL}/productos`);
         const data = await res.json();
         setProducts(data);
       } catch (err) {
         console.error("Error cargando productos:", err);
+      } finally {
+        setLoading(false);
       }
     }
 
@@ -116,10 +121,14 @@ function App() {
               Viandas
             </h2>
 
-            <ProductList
-              products={productsByCategory("viandas")}
-              onProductClick={setSelectedProduct}
-            />
+            {loading ? (
+              <LoadingSkeleton />
+            ) : (
+              <ProductList
+                products={productsByCategory("viandas")}
+                onProductClick={setSelectedProduct}
+              />
+            )}
           </div>
         </section>
 
@@ -130,10 +139,14 @@ function App() {
               Empanadas
             </h2>
 
-            <ProductList
-              products={productsByCategory("empanadas")}
-              onProductClick={setSelectedProduct}
-            />
+            {loading ? (
+              <LoadingSkeleton />
+            ) : (
+              <ProductList
+                products={productsByCategory("empanadas")}
+                onProductClick={setSelectedProduct}
+              />
+            )}
           </div>
         </section>
 
@@ -144,10 +157,14 @@ function App() {
               Pizza
             </h2>
 
-            <ProductList
-              products={productsByCategory("pizza")}
-              onProductClick={setSelectedProduct}
-            />
+            {loading ? (
+              <LoadingSkeleton />
+            ) : (
+              <ProductList
+                products={productsByCategory("pizza")}
+                onProductClick={setSelectedProduct}
+              />
+            )}
           </div>
         </section>
 
@@ -160,10 +177,14 @@ function App() {
               Tartas
             </h2>
 
-            <ProductList
-              products={productsByCategory("tartas")}
-              onProductClick={setSelectedProduct}
-            />
+            {loading ? (
+              <LoadingSkeleton />
+            ) : (
+              <ProductList
+                products={productsByCategory("tartas")}
+                onProductClick={setSelectedProduct}
+              />
+            )}
           </div>
         </section>
 
@@ -174,10 +195,14 @@ function App() {
               Pan
             </h2>
 
-            <ProductList
-              products={productsByCategory("pan")}
-              onProductClick={setSelectedProduct}
-            />
+            {loading ? (
+              <LoadingSkeleton />
+            ) : (
+              <ProductList
+                products={productsByCategory("pan")}
+                onProductClick={setSelectedProduct}
+              />
+            )}
           </div>
         </section>
 
@@ -188,10 +213,14 @@ function App() {
               Pastelería
             </h2>
 
-            <ProductList
-              products={productsByCategory("pasteleria")}
-              onProductClick={setSelectedProduct}
-            />
+            {loading ? (
+              <LoadingSkeleton />
+            ) : (
+              <ProductList
+                products={productsByCategory("pasteleria")}
+                onProductClick={setSelectedProduct}
+              />
+            )}
           </div>
         </section>
 
@@ -202,10 +231,14 @@ function App() {
               Vegano
             </h2>
 
-            <ProductList
-              products={productsByCategory("vegano")}
-              onProductClick={setSelectedProduct}
-            />
+            {loading ? (
+              <LoadingSkeleton />
+            ) : (
+              <ProductList
+                products={productsByCategory("vegano")}
+                onProductClick={setSelectedProduct}
+              />
+            )}
           </div>
         </section>
       </main>
