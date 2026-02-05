@@ -9,8 +9,10 @@ app.use(express.json());
 app.use(
     cors({
         origin: [
-        "http://localhost:5173",
-        // después agregamos acá el dominio de Vercel
+            "http://localhost:5173",
+            "https://sacilcomidascaseras.com.ar",
+            "https://www.sacilcomidascaseras.com.ar",
+            "https://sacil-comidas-caseras.vercel.app"
         ],
     })
 );
