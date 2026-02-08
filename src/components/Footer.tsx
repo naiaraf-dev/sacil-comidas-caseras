@@ -19,10 +19,10 @@ export default function Footer() {
                                 Sacil Comidas Caseras
                             </p>
                             <a
-                                href="https://www.instagram.com/sacilcomidascaseras?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                                href="https://www.instagram.com/sacilcomidascaseras"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-gray-600 hover:text-primary transition-colors"
+                                className="text-gray-600 hover:text-primary transition-colors hidden sm:inline"
                                 aria-label="Instagram de Sacil"
                             >
                                 <svg
