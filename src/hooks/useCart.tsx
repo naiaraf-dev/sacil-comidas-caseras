@@ -7,7 +7,7 @@ export type CartItem = {
     note?: string;
 };
 
-const STORAGE_KEY = "sacil_cart_v2"; // ⬅️ key nueva
+const STORAGE_KEY = "sacil_cart_v2";
 
 export function useCart() {
     const [items, setItems] = useState<CartItem[]>(() => {

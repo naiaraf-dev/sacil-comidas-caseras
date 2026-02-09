@@ -1,5 +1,6 @@
 import express from "express";
 import productosRouter from "./routes/productos.routes";
+import authRouter from "./routes/auth.routes";
 import cors from "cors";
 
 const app = express();
@@ -22,6 +23,7 @@ app.use("/img", express.static("public/img"));
 
 // rutas
 app.use("/productos", productosRouter);
+app.use("/auth", authRouter);
 
 // puerto dinámico (OBLIGATORIO en prod)
 const PORT = process.env.PORT || 3000;

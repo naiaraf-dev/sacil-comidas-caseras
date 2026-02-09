@@ -14,13 +14,16 @@ const categories = [
     { id: "tartas", label: "Tartas" },
     { id: "pan", label: "Pan" },
     { id: "pasteleria", label: "Pastelería" },
+    { id: "vegetariano", label: "Vegetariano" },
     { id: "vegano", label: "Vegano" },
+    { id: "saludable", label: "Saludable" },
 ];
 
 export default function Navbar({ onCategoryChange, selectedCategory }: NavbarProps) {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isMenuDropdownOpen, setIsMenuDropdownOpen] = useState(true);
     const location = useLocation();
+    const isAdminRoute = location.pathname.startsWith("/admin/productos");
 
     const handleCategoryClick = (categoryId: string | null) => {
         if (onCategoryChange) {
@@ -42,7 +45,7 @@ export default function Navbar({ onCategoryChange, selectedCategory }: NavbarPro
     return (
         <>
         <header className="fixed top-0 left-0 w-full z-50 bg-lightbg shadow-lg">
-            <div className="max-w-7xl mx-auto px-4 py-2">
+            <div className="max-w-7xl mx-auto px-4 py-4 overflow-x-auto">
             <div className="flex items-center justify-between">
                 
                 {/* LOGO + NOMBRE */}
@@ -58,7 +61,7 @@ export default function Navbar({ onCategoryChange, selectedCategory }: NavbarPro
                 </Link>
 
                 {/* NAVEGACIÓN DESKTOP */}
-                <nav className="hidden md:flex items-center gap-8">
+                <nav className="hidden md:flex items-center gap-4 flex-shrink-0">
                 <Link
                     to="/"
                     className={`text-base font-semibold transition-colors ${
@@ -79,6 +82,18 @@ export default function Navbar({ onCategoryChange, selectedCategory }: NavbarPro
                 >
                     Sobre Sacil
                 </Link>
+
+                {isAdminRoute && (
+                <button
+                    onClick={() => {
+                    localStorage.removeItem("adminAuth");
+                    window.location.href = "/admin";
+                    }}
+                    className="border-2 border-primary text-primary px-4 py-2 rounded-lg font-semibold hover:bg-primary hover:text-white transition-colors"
+                >
+                    Cerrar sesión
+                </button>
+                )}
                 </nav>
 
                 {/* MENÚ HAMBURGUESA MOBILE */}
@@ -258,6 +273,21 @@ export default function Navbar({ onCategoryChange, selectedCategory }: NavbarPro
                 </Link>
                 </div>
             </div>
+
+            {isAdminRoute && (
+            <div className="px-6 pb-4">
+                <button
+                onClick={() => {
+                    setIsMenuOpen(false);
+                    localStorage.removeItem("adminAuth");
+                    window.location.href = "/admin";
+                }}
+                className="w-full border-2 border-primary text-primary py-3 rounded-lg font-semibold hover:bg-primary hover:text-white transition-colors"
+                >
+                Cerrar sesión
+                </button>
+            </div>
+            )}
 
             {/* FOOTER DEL MENÚ - CONTACTO */}
             <div className="p-6 border-t bg-lightbg"

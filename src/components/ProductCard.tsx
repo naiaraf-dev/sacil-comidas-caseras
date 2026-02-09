@@ -36,10 +36,11 @@ export default function ProductCard({ product, onClick }: Props) {
                 )}
 
                 <div className="mt-auto pt-3 text-lg text-primary font-bold">
-                    ${product.price.toLocaleString()}
+                    {product.price === 0
+                        ? "Precio a consultar"
+                        : `$${product.price.toLocaleString()}`}
                 </div>
             </div>
         </div>
     );
 }
-

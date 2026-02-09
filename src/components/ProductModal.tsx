@@ -17,7 +17,7 @@ export default function ProductModal({ product, onClose, onAdd }: Props) {
             {/* CERRAR */}
             <button
             onClick={onClose}
-            className="absolute top-3 right-3 text-gray-500 hover:text-dark"
+            className="absolute top-3 right-3 text-gray-500 hover:text-primary"
             >
             ✕
             </button>

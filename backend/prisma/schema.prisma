@@ -11,14 +11,12 @@ datasource db {
 
 model Product {
   id          Int      @id @default(autoincrement())
-  name        String   @unique
+  name        String
   description String?
-  price       Int
-  image       String?
+  price       Int      @default(0)  // 0 = Precio a consultar
   category    String
+  image       String?
   active      Boolean  @default(true)
   createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }
-
-
-

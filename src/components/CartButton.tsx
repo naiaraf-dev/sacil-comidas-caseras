@@ -16,14 +16,11 @@ export default function CartButton({ itemCount, total, onOpen }: Props) {
                 const footerRect = footer.getBoundingClientRect();
                 const windowHeight = window.innerHeight;
                 
-                // Distancia desde el top del footer hasta el bottom de la ventana
                 const footerTopFromBottom = windowHeight - footerRect.top;
                 
                 if (footerTopFromBottom > 0) {
-                    // El footer está visible, mantener el botón 16px arriba del footer
                     setBottomPosition(footerTopFromBottom + 16);
                 } else {
-                    // Footer no visible, posición normal
                     setBottomPosition(16);
                 }
             }
