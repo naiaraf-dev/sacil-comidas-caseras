@@ -61,7 +61,7 @@ export default function Navbar({ onCategoryChange, selectedCategory }: NavbarPro
                 </Link>
 
                 {/* NAVEGACIÓN DESKTOP */}
-                <nav className="hidden md:flex items-center gap-4 flex-shrink-0">
+                <nav className="hidden md:flex items-center gap-7 flex-shrink-0">
                 <Link
                     to="/"
                     className={`text-base font-semibold transition-colors ${

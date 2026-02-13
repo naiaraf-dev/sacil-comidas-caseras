@@ -9,7 +9,7 @@ export default function SobreSacil() {
                         {/* Imagen */}
                         <div className="md:w-1/2">
                             <img
-                                src="/img/sacil_about_us.jpeg"
+                                src="/img/sacil_about.jpeg"
                                 alt="Sobre nosotros"
                                 className="rounded-xl w-full object-cover"
                             />
